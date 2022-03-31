@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class Main {
     public static ArrayList<item> box = new ArrayList<item>();
 
-    public static void addItem(ArrayList<item> b){
+    public static void addItem(ArrayList<item> b) {
 
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter how many item you want to create :");
         int create_item = scan.nextInt();
         scan.nextLine();
-        for( int i=0;i<create_item;i++){
-            System.out.println("Details for item -> "+(i+1));
+        for (int i = 0; i < create_item; i++) {
+            System.out.println("Details for item -> " + (i + 1));
             System.out.print("Enter the item name :");
             String tempname = scan.nextLine();
             System.out.print("Enter the item id : ");
@@ -26,21 +26,21 @@ public class Main {
             scan.nextLine();
             String tempseller = scan.nextLine();
 
-            item l = new item(tempname,tempid,tempprice,tempquantity,tempseller);
+            item l = new item(tempname, tempid, tempprice, tempquantity, tempseller);
             b.add(l);
         }
         System.out.println("size : " + b.size());
         manu();
     }
 
-    public static void displayItem(ArrayList<item> b){
-        for(item x:b){
+    public static void displayItem(ArrayList<item> b) {
+        for (item x : b) {
             System.out.println("|----------------------------------------------|");
             System.out.println("Item name :" + x.getName());
             System.out.println("Item id : " + x.getId());
-            System.out.println("Item price : " + x.getPrice() +" TK per unit");
-            System.out.println("Item quantity " + x.getQuantity() +" units");
-            System.out.println("Sellers : "+ x.getSeller());
+            System.out.println("Item price : " + x.getPrice() + " TK per unit");
+            System.out.println("Item quantity " + x.getQuantity() + " units");
+            System.out.println("Sellers : " + x.getSeller());
             System.out.println("|----------------------------------------------|");
         }
         manu();
@@ -63,14 +63,16 @@ public class Main {
                 menuList();
                 //just added base items for testing
                 int choice = scan.nextInt();
-                switch (choice){
-                    case 1: displayItem(box);
-                    scan.nextLine();
-                    break;
-                    case 2: addItem(box);
-                    break;
+                switch (choice) {
+                    case 1:
+                        displayItem(box);
+                        scan.nextLine();
+                        break;
+                    case 2:
+                        addItem(box);
+                        break;
                 }
-                if (choice==0) {
+                if (choice == 0) {
                     run = false;
                     System.exit(0);
 
@@ -85,9 +87,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        item rice = new item("rice",1,50,200,"asif");
-        item sugar = new item("sugar",2,30,300,"adib");
-        item egg = new item("egg",3,10,2000,"hamim");
+        item rice = new item("rice", 1, 50, 200, "asif");
+        item sugar = new item("sugar", 2, 30, 300, "adib");
+        item egg = new item("egg", 3, 10, 2000, "hamim");
         box.add(rice);
         box.add(sugar);
         box.add(egg);
