@@ -4,23 +4,23 @@ import java.util.Scanner;
 
 //16 wholesale management system database project
 public class Main {
-    public static ArrayList<item> box = new ArrayList<item>();
+    public static ArrayList<item> box = new ArrayList<>();
 
-    public static void removeItem(ArrayList<item> s){
+    public static void removeItem(ArrayList<item> s) {
         System.out.println("Enter the name of the item you want to delete");
         Scanner scan = new Scanner(System.in);
         String srcName = scan.nextLine();
-        boolean found=false;
-        for(item ss:s){
-            if(Objects.equals(ss.getName(), srcName)){
-                System.out.println("Item : " + ss.getName()  +" Id : "+ ss.getId()+" is deleted !");
+        boolean found = false;
+        for (item ss : s) {
+            if (Objects.equals(ss.getName(), srcName)) {
+                System.out.println("Item : " + ss.getName() + " Id : " + ss.getId() + " is deleted !");
                 s.remove(ss);
                 found = true;
             }
         }
-        if(found==false){
+        if (!found) {
             System.out.println("item not found!");
-        }else{
+        } else {
             System.out.println("Item is successfully deleted !");
         }
         manu();
@@ -51,7 +51,7 @@ public class Main {
             System.out.println("Enter manager address : ");
             scan.nextLine();
             String temp_manage_address = scan.nextLine();
-            manager temp_manager = new manager(tempseller,temp_manager_id,temp_manage_address,tempid);
+            manager temp_manager = new manager(tempseller, temp_manager_id, temp_manage_address, tempid);
             item l = new item(tempname, tempid, tempprice, tempquantity, temp_manager);
             b.add(l);
         }
@@ -91,17 +91,12 @@ public class Main {
                 //just added base items for testing
                 int choice = scan.nextInt();
                 switch (choice) {
-                    case 1:
+                    case 1 -> {
                         displayItem(box);
                         scan.nextLine();
-                        break;
-                    case 2:
-                        addItem(box);
-                        break;
-
-                    case 3:
-                        removeItem(box);
-                        break;
+                    }
+                    case 2 -> addItem(box);
+                    case 3 -> removeItem(box);
                 }
                 if (choice == 0) {
                     run = false;
@@ -118,11 +113,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        manager m1 = new manager("asif",23,"mohammodpur",12);
+        manager m1 = new manager("asif", 23, "mohammodpur", 12);
         item rice = new item("rice", 1, 50, 200, m1);
-        manager m2 = new manager("arif",24,"bogura",245);
+        manager m2 = new manager("arif", 24, "bogura", 245);
         item sugar = new item("sugar", 2, 30, 300, m2);
-        manager m3 = new manager("haris",32,"mohammodpur",2323);
+        manager m3 = new manager("haris", 32, "mohammodpur", 2323);
         item egg = new item("egg", 3, 10, 2000, m3);
         box.add(rice);
         box.add(sugar);

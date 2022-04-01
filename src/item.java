@@ -7,7 +7,7 @@ public class item {
     private int id;
     private int price;
     private int quantity;
-    private ArrayList<manager> seller = new ArrayList<manager>();
+    private final ArrayList<manager> seller = new ArrayList<manager>();
 
     public item(String nm, int i, int pr, int qn, manager sl) {
         setName(nm);
