@@ -2,7 +2,14 @@ public class manager {
     private String manager_Name;
     private int manager_Id;
     private String manager_Address;
-    private String manager_StockID;
+    private int manager_StockID;
+
+    public manager(String manager_Name, int manager_Id, String manager_Address, int manager_StockID) {
+        setManager_Name(manager_Name);
+        setManager_Id(manager_Id);
+        setManager_Address(manager_Address);
+        setManager_StockID(manager_StockID);
+    }
 
     public String getManager_Name() {
         return manager_Name;
@@ -28,11 +35,11 @@ public class manager {
         this.manager_Address = manager_Address;
     }
 
-    public String getManager_StockID() {
+    public int getManager_StockID() {
         return manager_StockID;
     }
 
-    public void setManager_StockID(String manager_StockID) {
+    public void setManager_StockID(int manager_StockID) {
         this.manager_StockID = manager_StockID;
     }
 }

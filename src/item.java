@@ -7,9 +7,9 @@ public class item {
     private int id;
     private int price;
     private int quantity;
-    private ArrayList<String> seller = new ArrayList<String>();
+    private ArrayList<manager> seller = new ArrayList<manager>();
 
-    public item(String nm, int i, int pr, int qn, String sl) {
+    public item(String nm, int i, int pr, int qn, manager sl) {
         setName(nm);
         setId(i);
         setPrice(pr);
@@ -42,11 +42,11 @@ public class item {
         this.price = price;
     }
 
-    public ArrayList<String> getSeller() {
+    public ArrayList<manager> getSeller() {
         return seller;
     }
 
-    public void setSeller(String ss) {
+    public void setSeller(manager ss) {
         seller.add(ss);
     }
 
@@ -56,6 +56,15 @@ public class item {
 
     public void setName(String s) {
         this.name = s;
+    }
+
+    public void printManagerDetails() {
+        for (manager m : seller) {
+            System.out.println("Manager name : " + m.getManager_Name());
+            System.out.println("Manager id : " + m.getManager_StockID());
+            System.out.println("Manager address : " + m.getManager_Address());
+            System.out.println("Manager Stock id : " + m.getManager_StockID());
+        }
     }
 
 
