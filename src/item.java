@@ -50,12 +50,12 @@ public class item {
         seller.add(ss);
     }
 
-    public void setName(String s) {
-        this.name = s;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String s) {
+        this.name = s;
     }
 
 
