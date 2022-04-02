@@ -5,6 +5,44 @@ import java.util.Scanner;
 //16 wholesale management system database project
 public class Main {
     public static ArrayList<item> box = new ArrayList<>();
+    public static ArrayList<customer> cust = new ArrayList<>();
+    public static void addCustomer(ArrayList<customer> c){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the customer count : ");
+        int customer_Count = scan.nextInt();
+        for(int i=0;i<customer_Count;i++){
+            scan.nextLine();
+            System.out.println("Customer name : ");
+            String tempCustomerName = scan.nextLine();
+            System.out.println("Customer address : ");
+            String tempCustomerAddress = scan.nextLine();
+            System.out.println("Customer id : ");
+            int tempCustomerID = scan.nextInt();
+            System.out.println("Paid amount : ");
+            int tempPaidAmount = scan.nextInt();
+            System.out.println("Unpaid amount : ");
+            int tempUnpaidAmount = scan.nextInt();
+            System.out.println("Number of items sold : ");
+            int tempSoldeItem = scan.nextInt();
+            customer tempcustomer = new customer(tempCustomerName,tempCustomerAddress,tempCustomerID,tempPaidAmount,tempUnpaidAmount);
+            scan.nextLine();
+            for(int j=0;j<tempSoldeItem;j++){
+                System.out.println( "Number "+(j+1)+ "item name :");
+                String tempItemName = scan.nextLine();
+                tempcustomer.setSoldItem(tempItemName);
+            }
+
+            cust.add(tempcustomer);
+        }
+        manu();
+    }
+
+    public static void showCustomer(ArrayList<customer> ccustomer){
+        for(customer c:ccustomer){
+            c.displayCustomerDetails();
+        }
+        manu();
+    }
 
     public static void removeItem(ArrayList<item> s) {
         System.out.println("Enter the name of the item you want to delete");
@@ -62,10 +100,10 @@ public class Main {
     public static void displayItem(ArrayList<item> b) {
         for (item x : b) {
             System.out.println("|----------------------------------------------|");
-            System.out.println("Item name :" + x.getName());
-            System.out.println("Item id : " + x.getId());
-            System.out.println("Item price : " + x.getPrice() + " TK per unit");
-            System.out.println("Item quantity " + x.getQuantity() + " units");
+            System.out.println("     Item name       : " + x.getName());
+            System.out.println("     Item id         : " + x.getId());
+            System.out.println("     Item price      : " + x.getPrice() + " TK per unit");
+            System.out.println("     Item quantity   : " + x.getQuantity() + " units");
             x.printManagerDetails();
             System.out.println("|----------------------------------------------|");
         }
@@ -74,10 +112,12 @@ public class Main {
 
     public static void menuList() {
         System.out.println("[------------------------]");
-        System.out.println("     Enter 0 to exit ");
-        System.out.println("      1.Show Items.");
-        System.out.println("      2.Add Items.");
-        System.out.println("      3.remove Item.");
+        System.out.println("     Enter 0 to exit      ");
+        System.out.println("      1.Show Items.       ");
+        System.out.println("      2.Add Items.        ");
+        System.out.println("      3.Remove Item.      ");
+        System.out.println("      4.Show Customer.    ");
+        System.out.println("      5.Add Customer.     ");
         System.out.println("[________________________]");
     }
 
@@ -97,6 +137,8 @@ public class Main {
                     }
                     case 2 -> addItem(box);
                     case 3 -> removeItem(box);
+                    case 4 -> showCustomer(cust);
+                    case 5 -> addCustomer(cust);
                 }
                 if (choice == 0) {
                     run = false;
