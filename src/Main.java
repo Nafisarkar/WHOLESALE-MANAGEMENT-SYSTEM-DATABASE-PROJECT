@@ -6,6 +6,24 @@ import java.util.Scanner;
 public class Main {
     public static ArrayList<item> box = new ArrayList<>();
     public static ArrayList<customer> cust = new ArrayList<>();
+
+    public static void profitthisMonth(ArrayList<customer> cust){
+        int total_paidit=0;
+        int total_notPaidit=0;
+        if(Main.cust.isEmpty()){
+            System.out.println(" no data added ! ");
+        }else{
+            for(customer x: Main.cust){
+                total_paidit += x.getPaid_amount();
+                total_notPaidit += x.getUnpaid_amount();
+            }
+            System.out.println("Total sold this month "+ total_paidit+ " $ ");
+            System.out.println("Total paid amount  "+ total_paidit+ " $ ");
+            System.out.println("Total not paid  "+total_notPaidit+ " $ ");
+        }
+        manu();
+    }
+
     public static void addCustomer(ArrayList<customer> c){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the customer count : ");
@@ -118,6 +136,7 @@ public class Main {
         System.out.println("      3.Remove Item.      ");
         System.out.println("      4.Show Customer.    ");
         System.out.println("      5.Add Customer.     ");
+        System.out.println("      6.Profit            ");
         System.out.println("[________________________]");
     }
 
@@ -139,6 +158,7 @@ public class Main {
                     case 3 -> removeItem(box);
                     case 4 -> showCustomer(cust);
                     case 5 -> addCustomer(cust);
+                    case 6 -> profitthisMonth(cust);
                 }
                 if (choice == 0) {
                     run = false;
