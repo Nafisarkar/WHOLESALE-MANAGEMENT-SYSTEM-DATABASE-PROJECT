@@ -9,6 +9,7 @@ public class item {
     private int quantity;
     private final ArrayList<manager> seller = new ArrayList<manager>();
 
+    //constructor
     public item(String nm, int i, int pr, int qn, manager sl) {
         setName(nm);
         setId(i);
